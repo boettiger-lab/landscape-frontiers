@@ -57,9 +57,20 @@ SELECT tag,
   100.0*SUM(CASE WHEN wb*bio+wc*carbn <  we*econn THEN econn ELSE 0 END)/SUM(econn) AS econ_pct
 FROM cells CROSS JOIN w GROUP BY tag,wb,wc,we ORDER BY econ_pct;
 ```
-Present the result as the trade-off table and narrate the gap (e.g. *"balanced keeps 98% biodiversity and
-99% carbon while capturing 12% of producible value"*). When charting lands (geo-agent #charting), plot the
-frontier curve with the current point marked.
+Present the result as the trade-off table, narrate the gap (e.g. *"balanced keeps 98% biodiversity and
+99% carbon while capturing 12% of producible value"*), **and draw it**: call `render_chart` with
+`type: "scatter"`, `x: "econ_pct"`, `y: "biodiv_pct"` (one point per weighting) to show the frontier, or
+`x: "biodiv_pct"`, `y: "carbon_pct"` for the conservation face. For a per-cell view, scatter `bio` vs `econ`
+over the AOI cells (sample/limit for legibility).
+
+### Charting (`render_chart` — enabled)
+Turn any query result into a chart instead of only a table/map. Pass `type` + `x`/`y` (+ optional `series`)
+and either an inline `data` array or a `sql` string the panel runs.
+- **scatter** — the Pareto frontier / any two-objective trade-off (the signature view).
+- **bar** — rankings ("top 10 countries by irrecoverable carbon outside IUCN I–IV").
+- **histogram** — distributions ("biodiversity composite across the AOI's cells"; `x` only).
+- **line** — trends over an ordered field.
+Prefer `sql` for large results (rows never round-trip through you). Always also give the headline number in text.
 
 **(3) Co-benefit / low-opportunity-cost finder** — unprotected cells high in conservation value and low in
 economic value (the win-win restore targets): top-decile `bio` OR `carbon`, bottom-decile `econ`, and not in

@@ -4,24 +4,49 @@
     "mcp_url": "https://duckdb-mcp.nrp-nautilus.io/mcp",
     "auto_approve": true,
     "draw_enabled": true,
-    "geocoder": { "provider": "nominatim", "search_box": true },
-    "sidebar": { "enabled": true },
-    "charts": { "enabled": true },
-    "view": { "center": [0, 10], "zoom": 2 },
+    "geocoder": {
+        "provider": "nominatim",
+        "search_box": true
+    },
+    "sidebar": {
+        "enabled": true
+    },
+    "charts": {
+        "enabled": true
+    },
+    "view": {
+        "center": [
+            0,
+            10
+        ],
+        "zoom": 2
+    },
     "llm": {
         "user_provided": true,
-        "transcription_model": { "value": "gemma" },
+        "transcription_model": {
+            "value": "gemma"
+        },
         "default_endpoint": "https://openrouter.ai/api/v1",
         "models": [
-            { "value": "anthropic/claude-sonnet-4", "label": "Claude Sonnet" },
-            { "value": "google/gemini-2.5-flash", "label": "Gemini Flash" },
-            { "value": "moonshotai/kimi-k2", "label": "Kimi K2" }
+            {
+                "value": "anthropic/claude-sonnet-4",
+                "label": "Claude Sonnet"
+            },
+            {
+                "value": "google/gemini-2.5-flash",
+                "label": "Gemini Flash"
+            },
+            {
+                "value": "moonshotai/kimi-k2",
+                "label": "Kimi K2"
+            }
         ]
     },
     "welcome": {
-        "message": "Hi! I help you explore the biodiversity · climate · economy trade-offs behind Polasky et al. 2026 (Science). Draw an area or name a country, and I'll show where it sits on its efficiency frontier. Try:",
+        "message": "Hi! I help you explore the biodiversity \u00b7 climate \u00b7 economy trade-offs behind Polasky et al. 2026 (Science). Draw an area or name a country, and I'll show where it sits on its efficiency frontier. Try:",
         "examples": [
             "Draw an area, then show its biodiversity, irrecoverable-carbon, and current economic-value scores.",
+            "Plot Brazil's efficiency frontier as a scatter: economic value captured vs biodiversity retained across weightings.",
             "For the area I drew, how much carbon could be gained with no loss of economic value?",
             "Find unprotected win-win cells (high biodiversity AND high carbon AND low economic value) in the Amazon.",
             "Recolor the map by the balanced-weight optimal land use for Brazil.",
@@ -58,21 +83,53 @@
                     "group": "Biodiversity Context",
                     "visible": false,
                     "default_style": {
-                        "fill-color": [ "match", ["get", "NNH_NAME"],
-                            "Half Protected", "#2e7d32",
-                            "Nature Could Reach Half Protected", "#9ccc65",
-                            "Nature Could Recover", "#fdd835",
-                            "Nature Imperiled", "#e53935", "#bdbdbd" ],
+                        "fill-color": [
+                            "match",
+                            [
+                                "get",
+                                "NNH_NAME"
+                            ],
+                            "Half Protected",
+                            "#2e7d32",
+                            "Nature Could Reach Half Protected",
+                            "#9ccc65",
+                            "Nature Could Recover",
+                            "#fdd835",
+                            "Nature Imperiled",
+                            "#e53935",
+                            "#bdbdbd"
+                        ],
                         "fill-opacity": 0.4
                     },
-                    "outline_style": { "line-color": "#424242", "line-width": 0.3, "line-opacity": 0.5 },
-                    "tooltip_fields": ["ECO_NAME", "BIOME_NAME", "REALM", "NNH_NAME"],
+                    "outline_style": {
+                        "line-color": "#424242",
+                        "line-width": 0.3,
+                        "line-opacity": 0.5
+                    },
+                    "tooltip_fields": [
+                        "ECO_NAME",
+                        "BIOME_NAME",
+                        "REALM",
+                        "NNH_NAME"
+                    ],
                     "legend_type": "categorical",
                     "legend_classes": [
-                        { "label": "Half Protected", "color": "#2e7d32" },
-                        { "label": "Nature Could Reach Half Protected", "color": "#9ccc65" },
-                        { "label": "Nature Could Recover", "color": "#fdd835" },
-                        { "label": "Nature Imperiled", "color": "#e53935" }
+                        {
+                            "label": "Half Protected",
+                            "color": "#2e7d32"
+                        },
+                        {
+                            "label": "Nature Could Reach Half Protected",
+                            "color": "#9ccc65"
+                        },
+                        {
+                            "label": "Nature Could Recover",
+                            "color": "#fdd835"
+                        },
+                        {
+                            "label": "Nature Imperiled",
+                            "color": "#e53935"
+                        }
                     ]
                 }
             ]
@@ -83,23 +140,62 @@
             "assets": [
                 {
                     "id": "wdpa-pmtiles",
-                    "display_name": "Protected Areas (WDPA — IUCN I–IV = production constraint)",
+                    "display_name": "Protected Areas (WDPA \u2014 IUCN I\u2013IV = production constraint)",
                     "group": "Constraints",
                     "visible": false,
                     "default_style": {
-                        "fill-color": [ "match", ["get", "IUCN_CAT"],
-                            ["Ia", "Ib", "II"], "#1b5e20",
-                            ["III", "IV"], "#43a047",
-                            ["V", "VI"], "#a5d6a7", "#bdbdbd" ],
+                        "fill-color": [
+                            "match",
+                            [
+                                "get",
+                                "IUCN_CAT"
+                            ],
+                            [
+                                "Ia",
+                                "Ib",
+                                "II"
+                            ],
+                            "#1b5e20",
+                            [
+                                "III",
+                                "IV"
+                            ],
+                            "#43a047",
+                            [
+                                "V",
+                                "VI"
+                            ],
+                            "#a5d6a7",
+                            "#bdbdbd"
+                        ],
                         "fill-opacity": 0.55
                     },
-                    "outline_style": { "line-color": "#1b5e20", "line-width": 0.4, "line-opacity": 0.7 },
-                    "tooltip_fields": ["NAME_ENG", "DESIG_ENG", "IUCN_CAT", "STATUS", "ISO3"],
+                    "outline_style": {
+                        "line-color": "#1b5e20",
+                        "line-width": 0.4,
+                        "line-opacity": 0.7
+                    },
+                    "tooltip_fields": [
+                        "NAME_ENG",
+                        "DESIG_ENG",
+                        "IUCN_CAT",
+                        "STATUS",
+                        "ISO3"
+                    ],
                     "legend_type": "categorical",
                     "legend_classes": [
-                        { "label": "Strict / Wilderness / NP (IUCN Ia–II) — no production", "color": "#1b5e20" },
-                        { "label": "Monument / Habitat mgmt (III–IV) — no production", "color": "#43a047" },
-                        { "label": "Protected landscape / Sustainable use (V–VI)", "color": "#a5d6a7" }
+                        {
+                            "label": "Strict / Wilderness / NP (IUCN Ia\u2013II) \u2014 no production",
+                            "color": "#1b5e20"
+                        },
+                        {
+                            "label": "Monument / Habitat mgmt (III\u2013IV) \u2014 no production",
+                            "color": "#43a047"
+                        },
+                        {
+                            "label": "Protected landscape / Sustainable use (V\u2013VI)",
+                            "color": "#a5d6a7"
+                        }
                     ]
                 }
             ]
@@ -107,28 +203,48 @@
         {
             "collection_id": "overture-divisions-countries-2026-02-18",
             "collection_url": "https://s3-west.nrp-nautilus.io/public-overturemaps/2026-02-18.0/countries/stac-collection.json",
-            "group": { "name": "Administrative Boundaries", "collapsed": true },
+            "group": {
+                "name": "Administrative Boundaries",
+                "collapsed": true
+            },
             "assets": [
                 {
                     "id": "countries-pmtiles",
                     "display_name": "Countries",
                     "visible": false,
-                    "default_style": { "fill-color": "#6A1B9A", "fill-opacity": 0.03 },
-                    "outline_style": { "line-color": "#6A1B9A", "line-width": 1.2, "line-opacity": 0.7 }
+                    "default_style": {
+                        "fill-color": "#6A1B9A",
+                        "fill-opacity": 0.03
+                    },
+                    "outline_style": {
+                        "line-color": "#6A1B9A",
+                        "line-width": 1.2,
+                        "line-opacity": 0.7
+                    }
                 }
             ]
         },
         {
             "collection_id": "overture-divisions-regions-2026-02-18",
             "collection_url": "https://s3-west.nrp-nautilus.io/public-overturemaps/2026-02-18.0/regions/stac-collection.json",
-            "group": { "name": "Administrative Boundaries", "collapsed": true },
+            "group": {
+                "name": "Administrative Boundaries",
+                "collapsed": true
+            },
             "assets": [
                 {
                     "id": "regions-pmtiles",
                     "display_name": "Regions / States",
                     "visible": false,
-                    "default_style": { "fill-color": "#6A1B9A", "fill-opacity": 0.03 },
-                    "outline_style": { "line-color": "#6A1B9A", "line-width": 0.8, "line-opacity": 0.6 }
+                    "default_style": {
+                        "fill-color": "#6A1B9A",
+                        "fill-opacity": 0.03
+                    },
+                    "outline_style": {
+                        "line-color": "#6A1B9A",
+                        "line-width": 0.8,
+                        "line-opacity": 0.6
+                    }
                 }
             ]
         }
