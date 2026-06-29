@@ -18,6 +18,9 @@ three-objective space and how far it is from its efficiency frontier. Built on t
 - **Charting** (frontier curve + "you are here"): tracked upstream at geo-agent (opt-in generic chart primitive). Until then, frontier is delivered as a table + map recolor.
 - **Live weight slider** (drag bio↔carbon↔economy → re-solve + recolor live): best as a generic geo-agent *reactive-parameter* control (relates to geo-agent #147 temporal slider); a frontier-specific extension can bolt on in the interim.
 
+## Research & provenance
+The analysis behind this app (feasibility, sensitivity POCs, the efficiency-frontier reproduction) lives in [`research/`](research/). Data generation (H3 ingest of the CC0 Dryad layers) is owned by [`boettiger-lab/data-workflows`](https://github.com/boettiger-lab/data-workflows) (issues #334/#335).
+
 ## Deploy
 
 Two deployment targets, both supported from this repo:
