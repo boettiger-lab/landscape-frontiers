@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landscape Efficiency Frontier Explorer</title>
 
-    <!-- Geo-Chat core modules loaded from CDN. Tracks a pinned tag; bump when upgrading. -->
+    <!-- Geo-Chat core modules loaded from CDN. Pinned to geo-agent branch SHA
+         7fbfb50 (PR #279 + #278: charting primitive + reactive slider) for
+         testing ahead of release. Bump to a release tag once merged. -->
     <script type="importmap">
     {
         "imports": {
@@ -39,15 +41,15 @@
         integrity="sha384-jrsBdrv4eDpEYIq32u13DPbvB6tRmqIDnA6UlgFBoexpetaiWi7g/VbfMEL1WVen"
         crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/boettiger-lab/geo-agent@v3.17.1/app/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/boettiger-lab/geo-agent@v3.17.1/app/chat.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/boettiger-lab/geo-agent@v3.17.1/app/sidebar.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/boettiger-lab/geo-agent@7fbfb50/app/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/boettiger-lab/geo-agent@7fbfb50/app/chat.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/boettiger-lab/geo-agent@7fbfb50/app/sidebar.css">
 </head>
 
 <body>
     <div id="map"></div>
     <div id="menu"></div>
-    <script type="module" src="https://cdn.jsdelivr.net/gh/boettiger-lab/geo-agent@v3.17.1/app/main.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/gh/boettiger-lab/geo-agent@7fbfb50/app/main.js"></script>
 </body>
 
 </html>

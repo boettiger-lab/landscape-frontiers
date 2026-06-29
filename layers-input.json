@@ -6,6 +6,7 @@
     "draw_enabled": true,
     "geocoder": { "provider": "nominatim", "search_box": true },
     "sidebar": { "enabled": true },
+    "charts": { "enabled": true },
     "view": { "center": [0, 10], "zoom": 2 },
     "llm": {
         "user_provided": true,
