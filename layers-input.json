@@ -107,6 +107,62 @@
             ]
         },
         {
+            "collection_id": "nci-frontiers",
+            "collection_url": "https://s3-west.nrp-nautilus.io/public-nci-frontiers/stac-collection.json",
+            "assets": [
+                {
+                    "id": "crop-current-cog",
+                    "display_name": "Crop revenue \u2014 current (USD/ha)",
+                    "group": "Economic value",
+                    "visible": true,
+                    "colormap": "greens",
+                    "rescale": "0,1500",
+                    "nodata": 0,
+                    "legend_label": "USD/ha"
+                },
+                {
+                    "id": "crop-irrigated-cog",
+                    "display_name": "Crop revenue \u2014 potential irrigated",
+                    "group": "Economic value",
+                    "visible": false,
+                    "colormap": "greens",
+                    "rescale": "0,2000",
+                    "nodata": 0,
+                    "legend_label": "USD/ha"
+                },
+                {
+                    "id": "crop-rainfed-cog",
+                    "display_name": "Crop revenue \u2014 potential rainfed",
+                    "group": "Economic value",
+                    "visible": false,
+                    "colormap": "greens",
+                    "rescale": "0,1500",
+                    "nodata": 0,
+                    "legend_label": "USD/ha"
+                },
+                {
+                    "id": "palm-current-cog",
+                    "display_name": "Oil-palm revenue \u2014 current",
+                    "group": "Economic value",
+                    "visible": false,
+                    "colormap": "greens",
+                    "rescale": "0,1500",
+                    "nodata": 0,
+                    "legend_label": "USD/ha"
+                },
+                {
+                    "id": "grazing-return-cog",
+                    "display_name": "Grazing revenue (USD/ha)",
+                    "group": "Economic value",
+                    "visible": false,
+                    "colormap": "greens",
+                    "rescale": "0,200",
+                    "nodata": -9999,
+                    "legend_label": "USD/ha"
+                }
+            ]
+        },
+        {
             "collection_id": "wwf-ecoregions-2017",
             "collection_url": "https://s3-west.nrp-nautilus.io/public-ecoregion/stac-collection.json",
             "assets": [
