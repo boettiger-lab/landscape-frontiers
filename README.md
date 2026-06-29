@@ -18,6 +18,26 @@ three-objective space and how far it is from its efficiency frontier. Built on t
 - **Charting** (frontier curve + "you are here"): tracked upstream at geo-agent (opt-in generic chart primitive). Until then, frontier is delivered as a table + map recolor.
 - **Live weight slider** (drag bio↔carbon↔economy → re-solve + recolor live): best as a generic geo-agent *reactive-parameter* control (relates to geo-agent #147 temporal slider); a frontier-specific extension can bolt on in the interim.
 
+## Deploy
+
+Two deployment targets, both supported from this repo:
+
+### Option A — GitHub Pages (bring-your-own LLM key)
+Static hosting, no server. The `llm` block in `layers-input.json` (`user_provided: true`,
+OpenRouter default) means each visitor enters **their own API key** in the in-app settings panel — stored
+in the browser only, never on a server. The duckdb-geo MCP it queries is the public NRP endpoint.
+- `.github/workflows/gh-pages.yml` deploys the repo to Pages on every push to `main`.
+- One-time: **Settings → Pages → Source → GitHub Actions**. Live at `https://boettiger-lab.github.io/landscape-frontiers/`.
+
+### Option B — NRP / Kubernetes (lab LLM proxy, no user key)
+`k8s/` serves the static files via nginx and reverse-proxies `/api/llm` to the lab LLM proxy (the
+`open-llm-proxy-secrets` key lives only in the nginx config, never in the browser); `config.json` is
+injected at boot from `k8s/configmap.yaml` and overrides the BYO `llm` block. Live at
+`https://landscape-frontiers.nrp-nautilus.io`.
+```bash
+kubectl apply -f k8s/      # configmap + deployment + service + ingress (namespace: biodiversity)
+```
+
 ## Local preview
 ```bash
 python -m http.server 8000   # open http://localhost:8000, enter an API key in settings
