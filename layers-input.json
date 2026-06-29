@@ -74,6 +74,39 @@
             ]
         },
         {
+            "collection_id": "iucn-richness-2025",
+            "collection_url": "https://s3-west.nrp-nautilus.io/public-iucn/stac-collection.json",
+            "assets": [
+                {
+                    "id": "combined-sr-cog",
+                    "display_name": "Species Richness \u2014 all vertebrates (IUCN 2025)",
+                    "group": "Objectives",
+                    "visible": true,
+                    "colormap": "viridis",
+                    "rescale": "0,1500",
+                    "legend_label": "species per cell"
+                },
+                {
+                    "id": "combined-rwr-cog",
+                    "display_name": "Range-Weighted (endemism) Richness",
+                    "group": "Objectives",
+                    "visible": false,
+                    "colormap": "magma",
+                    "rescale": "0,5",
+                    "legend_label": "rarity-weighted index"
+                },
+                {
+                    "id": "combined-thr-sr-cog",
+                    "display_name": "Threatened Species Richness (VU/EN/CR)",
+                    "group": "Objectives",
+                    "visible": false,
+                    "colormap": "inferno",
+                    "rescale": "0,150",
+                    "legend_label": "threatened species per cell"
+                }
+            ]
+        },
+        {
             "collection_id": "wwf-ecoregions-2017",
             "collection_url": "https://s3-west.nrp-nautilus.io/public-ecoregion/stac-collection.json",
             "assets": [
