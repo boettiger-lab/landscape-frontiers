@@ -55,6 +55,7 @@
     },
     "links": {
         "github": "https://github.com/boettiger-lab/landscape-frontiers",
+        "docs": "/docs.html",
         "carbon": true
     },
     "collections": [
