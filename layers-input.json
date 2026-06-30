@@ -160,6 +160,16 @@
                     "rescale": "0,200",
                     "nodata": -9999,
                     "legend_label": "USD/ha"
+                },
+                {
+                    "id": "forestry-return-cog",
+                    "display_name": "Forestry revenue (USD/ha)",
+                    "group": "Economic value",
+                    "visible": false,
+                    "colormap": "greens",
+                    "rescale": "0,5000",
+                    "nodata": -99999,
+                    "legend_label": "USD/ha"
                 }
             ]
         },
