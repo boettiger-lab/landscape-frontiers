@@ -93,6 +93,46 @@ layers to refresh the paper's frozen inputs. Legend: ✅ exact/near-exact · �
 
 **4 of 6 sub-indices reproducible from our catalog alone**; the other 2 from the CC0 deposit.
 
+### Biodiversity objective — authoritative reproduction spec (from the CC0 code deposit, 2026-07-01)
+
+Read from the code deposit (`10.5061/dryad.9s4mw6mxn`, `natures_frontiers/wbnci/biodiversity.py` +
+`data_prep_scripts/speciesRichness.py`) — this supersedes any earlier "biodiversity = a single
+PREDICTS lookup" framing. The per-pixel biodiversity value is the **`max` of six sub-indices**, each
+**min-max normalized *within each country*** (FLII already 0–1; KBA ×0.5 floor):
+
+1. **Species richness (the only PREDICTS sub-index).** Per taxon (Amphibians/Birds/Mammals/Reptiles):
+   `realized = Σ_taxa SR_factor × pool_taxa / (100 × global_richness_taxa)`, where
+   `global_richness = {Amph 6631, Birds 10424, Mammals 5709, Reptiles 6416}`. `SR_factor` =
+   `predicts2.Mean_sr[ composite ]` (and `Mean_abund` for the abundance variant — expose both).
+   **Composite key decoded:** `Value = code0 (class×100) + code1 (intensity×10) + luage (habitat age 0/1/2)`.
+   `predicts.csv` (= our `predicts` crosswalk) gives class+intensity per LULC code; `luage` counts how
+   many of the two historical LULC epochs (deposit `band1.tif`=current, `band14.tif`/`band24.tif`=~2005/1991)
+   were non-natural. Hardcoded specials: degraded→79.8, plantation→62.9.
+2–4,6. **RedList / Endemic / Rare-ecoregion / KBA** — a `binaryLULC` mask (natural=1, working=0,
+   sustainable grazing/forestry-in-natural=0.5, plantation & degraded=0) × the respective IUCN pool
+   (`{taxa}RL.tif`, `{taxa}Endemic.tif` inverse-range-weighted, `ecoMaps` as 1/ecoregion-size, `KBAs.tif`).
+5. **Forest intactness** = `flii/10000 × binaryLULC` (forestry 0.5 pixels forced to 0).
+
+**Key consequence — the "faithful vs independent" fork collapses.** The per-taxon IUCN pools
+(`Amphibians.tif`, `…RL.tif`, `…Endemic.tif`) and `KBAs.tif` are **NOT in the CC0 deposit** (withheld
+for licensing). The deposit ships only the ESA-LULC temporal bands, `ecoMaps`, `flii`, `plantation`,
+and the two `predicts` tables. So there is no "use the authors' baseline" path — we **must** supply the
+richness pools ourselves. Faithful reproduction therefore = reproduce the *algorithm* with **our IUCN
+pools**.
+
+**Decisions (2026-07-01, with C. Boettiger):**
+- **IUCN vintage: 2025 (ours), not the paper's 2019** — flag the vintage delta as a feature. We hold both
+  the derived `iucn-richness-2025` rasters *and the original IUCN range-map shapefiles*, so pools can be
+  rasterized exactly per `speciesRichness.py` (rasterize each species range, sum; red-list subset;
+  inverse-`SHAPE_Area` for endemic).
+- **Omit KBA (sub-index vi).** License-gated AND partly circular — KBAs are identified largely from IUCN
+  Red List / range data, so a KBA index re-counts signal already in indices (i)–(iii). It is only a 0.5
+  floor the SM says the other indices usually exceed; document the bounded omission.
+- **Validate** the reimplementation against the results deposit (`10.5061/dryad.b2rbnzsvt`,
+  `solutions.h5` per-country Pareto frontiers) for 1–2 countries before scaling.
+- Reimplementation ports `biodiversity.py`'s numpy raster-calculator chain to run per-alternative over
+  the hexed inputs; per-country min-max normalization is intrinsic (not globally comparable).
+
 ### Climate-mitigation objective
 
 | Paper input | Catalog holding | Status |
