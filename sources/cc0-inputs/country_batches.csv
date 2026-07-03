@@ -1,0 +1,147 @@
+country,package,package_type,package_size_gb
+Afghanistan,batch_03,batch,6.576
+Albania,batch_02,batch,6.579
+Algeria,batch_07,batch,6.579
+Angola,batch_09,batch,6.576
+Argentina,batch_03,batch,6.576
+Armenia,batch_01,batch,6.589
+Australia,batch_01,batch,6.589
+Austria,batch_01,batch,6.589
+Azerbaijan,batch_08,batch,6.589
+Bangladesh,batch_08,batch,6.589
+Belarus,batch_08,batch,6.589
+Belgium,batch_08,batch,6.589
+Belize,batch_06,batch,6.578
+Benin,batch_01,batch,6.589
+Bhutan,batch_07,batch,6.579
+Bolivia,batch_10,batch,6.576
+Bosnia and Herzegovina,batch_03,batch,6.576
+Botswana,batch_05,batch,6.579
+Brazil,Brazil,standalone,8.132
+Bulgaria,batch_02,batch,6.579
+Burkina Faso,batch_10,batch,6.576
+Burundi,batch_03,batch,6.576
+Cambodia,batch_05,batch,6.579
+Cameroon,batch_02,batch,6.579
+Canada,Canada,standalone,10.019
+Central African Republic,batch_05,batch,6.579
+Chad,batch_02,batch,6.579
+Chile,batch_08,batch,6.589
+China,China,standalone,10.158
+Colombia,batch_08,batch,6.589
+Costa Rica,batch_02,batch,6.579
+Croatia,batch_07,batch,6.579
+Cuba,batch_09,batch,6.576
+Czechia,batch_09,batch,6.576
+Democratic Republic of the Congo,batch_04,batch,6.587
+Denmark,batch_01,batch,6.589
+Dominican Republic,batch_10,batch,6.576
+East Timor,batch_01,batch,6.589
+Ecuador,batch_04,batch,6.587
+El Salvador,batch_03,batch,6.576
+Equatorial Guinea,batch_10,batch,6.576
+Eritrea,batch_05,batch,6.579
+Estonia,batch_03,batch,6.576
+Ethiopia,batch_08,batch,6.589
+Finland,batch_05,batch,6.579
+France,batch_02,batch,6.579
+Gabon,batch_06,batch,6.578
+Gambia,batch_01,batch,6.589
+Georgia,batch_08,batch,6.589
+Germany,batch_04,batch,6.587
+Ghana,batch_01,batch,6.589
+Greece,batch_04,batch,6.587
+Guatemala,batch_03,batch,6.576
+Guinea,batch_09,batch,6.576
+Guinea-Bissau,batch_06,batch,6.578
+Guyana,batch_07,batch,6.579
+Haiti,batch_09,batch,6.576
+Honduras,batch_07,batch,6.579
+Hungary,batch_06,batch,6.578
+Iceland,batch_02,batch,6.579
+India,batch_02,batch,6.579
+Indonesia,batch_06,batch,6.578
+Iran,batch_05,batch,6.579
+Iraq,batch_01,batch,6.589
+Italy,batch_03,batch,6.576
+Ivory Coast,batch_05,batch,6.579
+Jamaica,batch_04,batch,6.587
+Japan,batch_10,batch,6.576
+Jordan,batch_08,batch,6.589
+Kenya,batch_09,batch,6.576
+Laos,batch_03,batch,6.576
+Latvia,batch_07,batch,6.579
+Lebanon,batch_08,batch,6.589
+Lesotho,batch_05,batch,6.579
+Liberia,batch_04,batch,6.587
+Libya,batch_02,batch,6.579
+Lithuania,batch_06,batch,6.578
+Macedonia,batch_04,batch,6.587
+Madagascar,batch_09,batch,6.576
+Malawi,batch_04,batch,6.587
+Malaysia,batch_09,batch,6.576
+Mali,batch_06,batch,6.578
+Mauritania,batch_07,batch,6.579
+Mexico,batch_05,batch,6.579
+Moldova,batch_07,batch,6.579
+Mongolia,batch_07,batch,6.579
+Montenegro,batch_10,batch,6.576
+Morocco,batch_06,batch,6.578
+Mozambique,batch_10,batch,6.576
+Myanmar,batch_07,batch,6.579
+Namibia,batch_08,batch,6.589
+Nepal,batch_09,batch,6.576
+Netherlands,batch_01,batch,6.589
+New Caledonia,batch_02,batch,6.579
+New Zealand,batch_03,batch,6.576
+Nicaragua,batch_05,batch,6.579
+Niger,batch_10,batch,6.576
+Nigeria,batch_05,batch,6.579
+Norway,batch_03,batch,6.576
+Oman,batch_10,batch,6.576
+Pakistan,batch_04,batch,6.587
+Panama,batch_09,batch,6.576
+Papua New Guinea,batch_04,batch,6.587
+Paraguay,batch_08,batch,6.589
+Peru,batch_09,batch,6.576
+Philippines,batch_06,batch,6.578
+Poland,batch_04,batch,6.587
+Portugal,batch_08,batch,6.589
+Republic of Serbia,batch_02,batch,6.579
+Republic of the Congo,batch_02,batch,6.579
+Romania,batch_01,batch,6.589
+Rwanda,batch_05,batch,6.579
+Saudi Arabia,batch_03,batch,6.576
+Senegal,batch_02,batch,6.579
+Sierra Leone,batch_04,batch,6.587
+Slovakia,batch_06,batch,6.578
+Slovenia,batch_09,batch,6.576
+Solomon Islands,batch_04,batch,6.587
+Somalia,batch_08,batch,6.589
+South Africa,batch_10,batch,6.576
+South Korea,batch_10,batch,6.576
+South Sudan,batch_06,batch,6.578
+Spain,batch_06,batch,6.578
+Sri Lanka,batch_04,batch,6.587
+Sudan,batch_08,batch,6.589
+Suriname,batch_05,batch,6.579
+Sweden,batch_09,batch,6.576
+Switzerland,batch_09,batch,6.576
+Syria,batch_10,batch,6.576
+Thailand,batch_07,batch,6.579
+Togo,batch_05,batch,6.579
+Tunisia,batch_03,batch,6.576
+Turkey,batch_06,batch,6.578
+Uganda,batch_10,batch,6.576
+Ukraine,batch_10,batch,6.576
+United Kingdom,batch_07,batch,6.579
+United Republic of Tanzania,batch_07,batch,6.579
+United States of America,United States of America,standalone,8.052
+Uruguay,batch_06,batch,6.578
+Vanuatu,batch_08,batch,6.589
+Venezuela,batch_09,batch,6.576
+Vietnam,batch_07,batch,6.579
+Yemen,batch_03,batch,6.576
+Zambia,batch_04,batch,6.587
+Zimbabwe,batch_10,batch,6.576
+eSwatini,batch_07,batch,6.579
