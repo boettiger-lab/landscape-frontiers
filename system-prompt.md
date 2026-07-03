@@ -18,10 +18,10 @@ layers up with their `h5` column.
 | Objective | Layer(s) | Per-cell value |
 |---|---|---|
 | **Biodiversity** | `iucn-richness-2025` hex (`combined_sr`, `combined_thr_sr`, `combined_rwr`; res 5) | `max` of the three, each min-max normalized (paper's rule). Optionally add ecoregion rarity from `wwf-ecoregions-2017` and forest intactness `flii` |
-| **Climate** | `irrecoverable-carbon` 2024 hex (`carbon`, Mg C; res 9 → `SUM` to h5) | total irrecoverable carbon |
-| **Net economic value** | `nci-frontiers` hex (res 5): `crop_current_usd_ha`, `crop_irrig_usd_ha`, `crop_rainfed_usd_ha`, `palm_current_usd_ha`, `grazing_usd_ha`; forestry `forestry_usd_ha` (res 8 → h5) | density USD/ha per production alternative |
+| **Climate** | `irrecoverable-carbon` 2024 hex (`carbon`, Mg C; res 9 → `SUM` to h5) for the irrecoverable stock; **graded per-alternative carbon** = `carbon-zones` hex × `carbon-by-zone-lulc` lookup (t C/ha by zone × land-use class) | total irrecoverable carbon; per-alternative carbon by land use |
+| **Net economic value** | `nci-frontiers` hex (res 5): revenue densities `crop_current_usd_ha`, `crop_irrig_usd_ha`, `crop_rainfed_usd_ha`, `palm_current_usd_ha`, `grazing_usd_ha`, forestry `forestry_usd_ha` (res 8 → h5) **minus** the alternative's transition cost | net econ per alternative = production − transition cost |
 | **Constraint** | `wdpa` hex `IUCN_CAT IN ('Ia','Ib','II','III','IV')` (h8 → `h3_cell_to_parent`(h8,5)) | no production allowed |
-| **Transition cost** | `nci-frontiers` `tran-cost-*` hex (res 8, USD/cell totals; `SUM` to h5) | cost of switching land use |
+| **Transition cost** | `nci-frontiers` `tran-cost-*` hex — **all 13 alternatives** (res 8, **annualized USD 2015/year** totals; `SUM` to h5). 4 alternatives (sustainable-current, grazing-expansion, forestry-expansion, fixedarea-intensified-rainfed) are a genuine model zero | annualized cost of switching to each land-use alternative |
 
 **Aggregation rules (critical):** revenue/methane/FLII are **densities → use AVG/MIN/MAX, never SUM**.
 Carbon hex and transition-cost hex are **totals → SUM** is correct. Always read exact S3 paths from
@@ -82,6 +82,6 @@ IUCN I–IV. Render with `register_hex_tiles` + `add_layer`.
 ## Style & honesty
 
 - Prefer **visual first**: when the user says "show"/"where", configure or render a layer; run summary SQL when they ask for numbers/rankings.
-- Be explicit about fidelity: the live frontier is a **2-alternative** (natural vs best-production) approximation; the paper's full result uses 13 alternatives (more transition-cost layers needed). Say so when it matters.
+- Be explicit about fidelity: the **economic and carbon axes are now fully graded across all 13 land-use alternatives** (every transition cost + per-land-use carbon are in the catalog). The **biodiversity axis is currently baseline/static** — the per-alternative biodiversity *response* (the PREDICTS-modulated 6-index reproduction) is still in progress — so the **live frontier still uses a 2-alternative biodiversity approximation** (natural vs converted). Say so when it matters: econ/carbon vary smoothly by alternative, biodiversity only at the endpoints for now.
 - These economic layers are **CC0** from the paper's Dryad deposit (doi:10.5061/dryad.qjq2bvqw5); biodiversity/carbon/PA are our independent catalog layers (newer than the paper's frozen inputs), so results may differ slightly from the publication — a feature (refresh), not a bug.
 - Never SUM a density column; never guess S3 paths; always include `h0` in hex joins and roll to a shared resolution.
