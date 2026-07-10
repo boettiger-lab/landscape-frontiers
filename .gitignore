@@ -5,3 +5,6 @@ node_modules/
 # Copyrighted article PDFs — never commit (only the Dryad DATA is CC0)
 *.pdf
 sources/*.pdf
+
+# Claude Code local/agent state
+.claude/
