@@ -11,8 +11,10 @@ three-objective space and how far it is from its efficiency frontier. Built on t
 - `system-prompt.md` — frontier framing + the canned SQL recipes (AOI scorecard, weight-sweep frontier, co-benefit finder, recolor-by-solution) + aggregation rules.
 
 ## Status / dependencies
-- Depends on the `nci-frontiers` hex layers (data-workflows #335) — economic revenue (res 5), forestry/FLII + transition costs (res 8). **First-pass hexing in progress**; the app's context layers (carbon, ecoregions, WDPA) and the biodiversity/carbon objectives work today; the economic axis lights up as those layers publish.
-- Fidelity: the live frontier is a **2-alternative** (natural vs best-production) approximation; the faithful 13-alternative frontier needs the full transition-cost set (pass-2 ingest) — same separable SQL, more alternatives.
+- **Ingest complete** (data-workflows #335, merged). `nci-frontiers` publishes economic revenue + grazing methane (native res 5); forestry, FLII, **all 13 land-use transition costs**, the six scenario-construction constraint masks, `carbon-zones`, and `esa-lc-2025` (native res 8); plus the `carbon-by-zone-lulc`, `predicts-crosswalk` and `predicts-sr-response` lookups. Every layer carries an `h5` parent for the paper's ~8000 ha decision unit. The whole CC0 Dryad input deposit is mirrored under `raw/`.
+- **Data readiness vs app fidelity — these differ, and the gap is the current work.**
+  - *Catalog:* economic and carbon objectives are gradable across **all 13 alternatives** (13 transition-cost surfaces; per-land-use carbon via `carbon-zones` × `carbon-by-zone-lulc`). The per-alternative **biodiversity** response is also gradable — `predicts-crosswalk` + `predicts-sr-response` are the paper's PREDICTS machinery, and the historical LULC epochs (`band1`/`band14`/`band24`) needed for the `luage` term are in the raw mirror. **Five of the paper's six biodiversity sub-indices are constructible; only KBA is not** (withheld from the deposit for licensing — data-workflows #334).
+  - *App:* the canned frontier recipe in `system-prompt.md` is still a **2-alternative** approximation (natural vs best-production) on *all three* axes. Upgrading it to the full 13-alternative argmax is a prompt change, not a data change — same separable SQL, more alternatives — and should go through a benchmark gate run before shipping.
 
 ## Roadmap (see DESIGN.md)
 - **Charting** (frontier curve + "you are here"): tracked upstream at geo-agent (opt-in generic chart primitive). Until then, frontier is delivered as a table + map recolor.

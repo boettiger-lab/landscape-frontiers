@@ -61,9 +61,9 @@ Fork `geo-agent-template` → `landscape-frontiers`:
 
 ## Fidelity scales with the ingest
 
-- **Today (2-objective + simplified econ):** works now from the catalog (biodiversity × carbon) plus the point-binned econ POC — enough to demo the loop.
-- **First-pass ingest (in flight, #335):** 13 hex layers → a real 3-objective scorecard + a 2-alternative (natural vs best-production) frontier per AOI.
-- **Full ingest (pass 2):** all 14 transition costs + the per-alternative crop/grazing/forestry value tables → the faithful **13-alternative** frontier the paper runs — same separable argmax, just more alternatives per cell. No new app work, only more layers.
+- **Initial (2-objective + simplified econ):** biodiversity × carbon from the catalog plus a point-binned econ POC — the demo loop, superseded by the ingest below.
+- **First-pass ingest (complete, #335 merged):** the hex layers → a real 3-objective scorecard + a 2-alternative (natural vs best-production) frontier per AOI. The catalog now also carries all 13 transition-cost surfaces, per-land-use carbon, and the PREDICTS response tables, so the 13-alternative frontier is a prompt/recipe change rather than an ingest one. KBA remains outstanding (#334).
+- **Full ingest: done.** All 14 transition-cost surfaces are in (`tran_cost_base_lulc` plus one per alternative → the 13 `tran-cost-*` hex layers), alongside per-land-use carbon and the PREDICTS response tables. The faithful **13-alternative** frontier the paper runs is now purely a recipe change — same separable argmax, more alternatives per cell. **The remaining work is in the app prompt, not the data.**
 
 The optimization never leaves SQL, so the whole thing stays inside the duckdb-geo MCP the app already
 speaks — the platform is mostly a system-prompt + a frontier widget away.

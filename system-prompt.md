@@ -45,9 +45,12 @@ SELECT SUM(bio) biodiv, SUM(carbon) carbon, AVG(econ) econ_density
 FROM :aoi JOIN bio USING(h5) JOIN carb USING(h5) JOIN econ USING(h5);
 ```
 
-**(2) Efficiency frontier (weight sweep)** — separable per-cell argmax over a 2-alternative choice
-(natural = keep bio+carbon; production = gain econ, lose bio+carbon), summed per weight. Normalize each
-objective to its AOI max so weights are commensurate; report % of each objective's achievable maximum:
+**(2) Efficiency frontier (weight sweep)** — separable per-cell argmax over a **2-alternative**
+choice (natural = keep bio+carbon; production = gain econ, lose bio+carbon), summed per weight.
+Normalize each objective to its AOI max so weights are commensurate; report % of each objective's
+achievable maximum. *The layers support the paper's full 13 alternatives — one `tran-cost-*`
+surface and one `carbon-by-zone-lulc` row each — so extending this is adding rows to the choice
+set, not changing the method. Say which one you ran.*
 ```sql
 WITH cells AS (/* :aoi joined to normalized bio, carbn, econn */),
      w(tag,wb,wc,we) AS (VALUES ('all-econ',0,0,1),('balanced',0.34,0.33,0.33),('consv',0.5,0.5,0),('econ-lean',0.1,0.1,0.8))
@@ -82,6 +85,6 @@ IUCN I–IV. Render with `register_hex_tiles` + `add_layer`.
 ## Style & honesty
 
 - Prefer **visual first**: when the user says "show"/"where", configure or render a layer; run summary SQL when they ask for numbers/rankings.
-- Be explicit about fidelity: the **economic and carbon axes are now fully graded across all 13 land-use alternatives** (every transition cost + per-land-use carbon are in the catalog). The **biodiversity axis is currently baseline/static** — the per-alternative biodiversity *response* (the PREDICTS-modulated 6-index reproduction) is still in progress — so the **live frontier still uses a 2-alternative biodiversity approximation** (natural vs converted). Say so when it matters: econ/carbon vary smoothly by alternative, biodiversity only at the endpoints for now.
+- Be explicit about fidelity, and keep two things apart. **The catalog now supports all 13 land-use alternatives on every axis**: 13 transition-cost surfaces, per-land-use carbon (`carbon-zones` × `carbon-by-zone-lulc`), and the per-alternative biodiversity response (`predicts-crosswalk` + `predicts-sr-response`, the paper's PREDICTS machinery). Only **KBA** is missing from the paper's six biodiversity sub-indices — it was withheld from the deposit for licensing, so five of six are constructible. **But recipe (2) below is still a 2-alternative approximation** (natural vs best-production) across all three objectives. So: if the user wants the faithful frontier, you can build it from the layers above — it is the same separable argmax over 13 alternatives instead of 2 — but say which one you ran. Do not describe the 2-alternative result as the paper's frontier.
 - These economic layers are **CC0** from the paper's Dryad deposit (doi:10.5061/dryad.qjq2bvqw5); biodiversity/carbon/PA are our independent catalog layers (newer than the paper's frozen inputs), so results may differ slightly from the publication — a feature (refresh), not a bug.
 - Never SUM a density column; never guess S3 paths; always include `h0` in hex joins and roll to a shared resolution.
