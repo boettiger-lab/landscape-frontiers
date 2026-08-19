@@ -6,18 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landscape Efficiency Frontier Explorer</title>
 
-    <!-- Geo-Chat core modules loaded from CDN. Pinned to geo-agent branch SHA
-         3ce0147 (PR #279 + #278: charting primitive + reactive slider) for
-         testing ahead of release. Bump to a release tag once merged. -->
-    <script type="importmap">
-    {
-        "imports": {
-            "@modelcontextprotocol/sdk/client/index.js": "https://esm.sh/@modelcontextprotocol/sdk@1.12.0/client/index",
-            "@modelcontextprotocol/sdk/client/streamableHttp.js": "https://esm.sh/@modelcontextprotocol/sdk@1.12.0/client/streamableHttp"
-        }
-    }
-    </script>
-
+    <!-- Geo-Chat core modules loaded from CDN, pinned to a release tag (@vX.Y.Z,
+         4 places below). Never use @main in a deployed app: a merge can change
+         behaviour under a running page. To upgrade, bump the tag in all four
+         places together. -->
     <script src="https://unpkg.com/maplibre-gl@5.22.0/dist/maplibre-gl.js"
         integrity="sha384-U054LTKiMIJKEecR8PKFiUZdvkGWHjfPBnen5hSmR9TwfOfgZmKbskC8Rs9dCm/1"
         crossorigin="anonymous"></script>
@@ -41,15 +33,15 @@
         integrity="sha384-jrsBdrv4eDpEYIq32u13DPbvB6tRmqIDnA6UlgFBoexpetaiWi7g/VbfMEL1WVen"
         crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/boettiger-lab/geo-agent@v3.25.0/app/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/boettiger-lab/geo-agent@v3.25.0/app/chat.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/boettiger-lab/geo-agent@v3.25.0/app/sidebar.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/boettiger-lab/geo-agent@v3.26.0/app/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/boettiger-lab/geo-agent@v3.26.0/app/chat.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/boettiger-lab/geo-agent@v3.26.0/app/sidebar.css">
 </head>
 
 <body>
     <div id="map"></div>
     <div id="menu"></div>
-    <script type="module" src="https://cdn.jsdelivr.net/gh/boettiger-lab/geo-agent@v3.25.0/app/main.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/gh/boettiger-lab/geo-agent@v3.26.0/app/main.js"></script>
 </body>
 
 </html>
