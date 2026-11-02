@@ -3,7 +3,7 @@
 Interactive explorer for the **biodiversity · climate · economy trade-offs** of Polasky et al. 2026
 (*Science*, "Landscape efficiency frontiers"). Draw an area or name a country → see where it sits in the
 three-objective space and how far it is from its efficiency frontier. Built on the
-[`geo-agent`](https://github.com/boettiger-lab/geo-agent) runtime (fork of `geo-agent-template`).
+[`geo-agent`](https://github.com/SchmidtDSE/glen) runtime (fork of `geo-agent-template`).
 
 ## Files
 - `index.html` — HTML shell, loads the geo-agent runtime + CSS from CDN (pinned `@v3.17.1`).
