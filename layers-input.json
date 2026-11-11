@@ -68,8 +68,6 @@
                     "display_name": "Irrecoverable Carbon (2024)",
                     "group": "Objectives",
                     "visible": true,
-                    "colormap": "reds",
-                    "rescale": "0,150",
                     "legend_label": "Mg C / ha"
                 }
             ]
@@ -83,8 +81,6 @@
                     "display_name": "Species Richness \u2014 all vertebrates (IUCN 2025)",
                     "group": "Objectives",
                     "visible": true,
-                    "colormap": "viridis",
-                    "rescale": "0,1500",
                     "legend_label": "species per cell"
                 },
                 {
@@ -92,8 +88,6 @@
                     "display_name": "Range-Weighted (endemism) Richness",
                     "group": "Objectives",
                     "visible": false,
-                    "colormap": "magma",
-                    "rescale": "0,5",
                     "legend_label": "rarity-weighted index"
                 },
                 {
@@ -101,8 +95,6 @@
                     "display_name": "Threatened Species Richness (VU/EN/CR)",
                     "group": "Objectives",
                     "visible": false,
-                    "colormap": "inferno",
-                    "rescale": "0,150",
                     "legend_label": "threatened species per cell"
                 }
             ]
@@ -116,9 +108,6 @@
                     "display_name": "Crop revenue \u2014 current (USD/ha)",
                     "group": "Economic value",
                     "visible": true,
-                    "colormap": "greens",
-                    "rescale": "0,1500",
-                    "nodata": 0,
                     "legend_label": "USD/ha"
                 },
                 {
@@ -126,9 +115,6 @@
                     "display_name": "Crop revenue \u2014 potential irrigated",
                     "group": "Economic value",
                     "visible": false,
-                    "colormap": "greens",
-                    "rescale": "0,2000",
-                    "nodata": 0,
                     "legend_label": "USD/ha"
                 },
                 {
@@ -136,9 +122,6 @@
                     "display_name": "Crop revenue \u2014 potential rainfed",
                     "group": "Economic value",
                     "visible": false,
-                    "colormap": "greens",
-                    "rescale": "0,1500",
-                    "nodata": 0,
                     "legend_label": "USD/ha"
                 },
                 {
@@ -146,9 +129,6 @@
                     "display_name": "Oil-palm revenue \u2014 current",
                     "group": "Economic value",
                     "visible": false,
-                    "colormap": "greens",
-                    "rescale": "0,1500",
-                    "nodata": 0,
                     "legend_label": "USD/ha"
                 },
                 {
@@ -156,9 +136,6 @@
                     "display_name": "Grazing revenue (USD/ha)",
                     "group": "Economic value",
                     "visible": false,
-                    "colormap": "greens",
-                    "rescale": "0,200",
-                    "nodata": -9999,
                     "legend_label": "USD/ha"
                 },
                 {
@@ -166,9 +143,6 @@
                     "display_name": "Forestry revenue (USD/ha)",
                     "group": "Economic value",
                     "visible": false,
-                    "colormap": "greens",
-                    "rescale": "0,5000",
-                    "nodata": -99999,
                     "legend_label": "USD/ha"
                 }
             ]
