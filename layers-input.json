@@ -1,218 +1,226 @@
 {
-    "catalog": "https://s3-west.nrp-nautilus.io/public-data/stac/catalog.json",
-    "titiler_url": "https://titiler.nrp-nautilus.io",
-    "mcp_url": "https://duckdb-mcp.nrp-nautilus.io/mcp",
-    "auto_approve": true,
-    "draw_enabled": true,
-    "geocoder": {
-        "provider": "nominatim",
-        "search_box": true
+  "catalog": "https://s3-west.nrp-nautilus.io/public-data/stac/catalog.json",
+  "titiler_url": "https://titiler.nrp-nautilus.io",
+  "auto_approve": true,
+  "geocoder": {
+    "provider": "nominatim",
+    "search_box": true
+  },
+  "sidebar": {
+    "enabled": true
+  },
+  "view": {
+    "center": [
+      0,
+      10
+    ],
+    "zoom": 2
+  },
+  "llm": {
+    "user_provided": true,
+    "transcription_model": {
+      "value": "gemma"
     },
-    "sidebar": {
-        "enabled": true
-    },
-    "charts": {
-        "enabled": true
-    },
-    "view": {
-        "center": [
-            0,
-            10
-        ],
-        "zoom": 2
-    },
-    "llm": {
-        "user_provided": true,
-        "transcription_model": {
-            "value": "gemma"
-        },
-        "default_endpoint": "https://openrouter.ai/api/v1",
-        "models": [
-            {
-                "value": "anthropic/claude-sonnet-5",
-                "label": "Claude Sonnet 5"
-            },
-            {
-                "value": "google/gemini-2.5-flash",
-                "label": "Gemini Flash"
-            },
-            {
-                "value": "moonshotai/kimi-k2",
-                "label": "Kimi K2"
-            }
-        ]
-    },
-    "welcome": {
-        "message": "Hi! I help you explore the biodiversity \u00b7 climate \u00b7 economy trade-offs behind Polasky et al. 2026 (Science). Draw an area or name a country, and I'll show where it sits on its efficiency frontier. Try:",
-        "examples": [
-            "Draw an area, then show its biodiversity, irrecoverable-carbon, and current economic-value scores.",
-            "Plot Brazil's efficiency frontier as a scatter: economic value captured vs biodiversity retained across weightings.",
-            "For the area I drew, how much carbon could be gained with no loss of economic value?",
-            "Find unprotected win-win cells (high biodiversity AND high carbon AND low economic value) in the Amazon.",
-            "Recolor the map by the balanced-weight optimal land use for Brazil.",
-            "Compare the biodiversity-vs-economy trade-off for Gabon versus Indonesia."
-        ]
-    },
-    "links": {
-        "github": "https://github.com/boettiger-lab/landscape-frontiers",
-        "docs": "/docs.html",
-        "carbon": true
-    },
-    "collections": [
-        {
-            "collection_id": "irrecoverable-carbon",
-            "collection_url": "https://s3-west.nrp-nautilus.io/public-carbon/stac-collection.json",
-            "assets": [
-                {
-                    "id": "v2-irrecoverable-2024-cog",
-                    "display_name": "Irrecoverable Carbon (2024)",
-                    "group": "Objectives",
-                    "visible": true,
-                    "legend_label": "Mg C / ha"
-                }
-            ]
-        },
-        {
-            "collection_id": "iucn-richness-2025",
-            "collection_url": "https://s3-west.nrp-nautilus.io/public-iucn/stac-collection.json",
-            "assets": [
-                {
-                    "id": "combined-sr-cog",
-                    "display_name": "Species Richness \u2014 all vertebrates (IUCN 2025)",
-                    "group": "Objectives",
-                    "visible": true,
-                    "legend_label": "species per cell"
-                },
-                {
-                    "id": "combined-rwr-cog",
-                    "display_name": "Range-Weighted (endemism) Richness",
-                    "group": "Objectives",
-                    "visible": false,
-                    "legend_label": "rarity-weighted index"
-                },
-                {
-                    "id": "combined-thr-sr-cog",
-                    "display_name": "Threatened Species Richness (VU/EN/CR)",
-                    "group": "Objectives",
-                    "visible": false,
-                    "legend_label": "threatened species per cell"
-                }
-            ]
-        },
-        {
-            "collection_id": "nci-frontiers",
-            "collection_url": "https://s3-west.nrp-nautilus.io/public-nci-frontiers/stac-collection.json",
-            "assets": [
-                {
-                    "id": "crop-current-cog",
-                    "display_name": "Crop revenue \u2014 current (USD/ha)",
-                    "group": "Economic value",
-                    "visible": true,
-                    "legend_label": "USD/ha"
-                },
-                {
-                    "id": "crop-irrigated-cog",
-                    "display_name": "Crop revenue \u2014 potential irrigated",
-                    "group": "Economic value",
-                    "visible": false,
-                    "legend_label": "USD/ha"
-                },
-                {
-                    "id": "crop-rainfed-cog",
-                    "display_name": "Crop revenue \u2014 potential rainfed",
-                    "group": "Economic value",
-                    "visible": false,
-                    "legend_label": "USD/ha"
-                },
-                {
-                    "id": "palm-current-cog",
-                    "display_name": "Oil-palm revenue \u2014 current",
-                    "group": "Economic value",
-                    "visible": false,
-                    "legend_label": "USD/ha"
-                },
-                {
-                    "id": "grazing-return-cog",
-                    "display_name": "Grazing revenue (USD/ha)",
-                    "group": "Economic value",
-                    "visible": false,
-                    "legend_label": "USD/ha"
-                },
-                {
-                    "id": "forestry-return-cog",
-                    "display_name": "Forestry revenue (USD/ha)",
-                    "group": "Economic value",
-                    "visible": false,
-                    "legend_label": "USD/ha"
-                }
-            ]
-        },
-        {
-            "collection_id": "wwf-ecoregions-2017",
-            "collection_url": "https://s3-west.nrp-nautilus.io/public-ecoregion/wwf-ecoregions-2017/stac-collection.json",
-            "assets": [
-                {
-                    "id": "ecoregion-pmtiles",
-                    "display_name": "Terrestrial Ecoregions (WWF / Dinerstein 2017)",
-                    "group": "Biodiversity Context",
-                    "visible": false,
-                    "tooltip_fields": [
-                        "ECO_NAME",
-                        "BIOME_NAME",
-                        "REALM",
-                        "NNH_NAME"
-                    ]
-                }
-            ]
-        },
-        {
-            "collection_id": "wdpa",
-            "collection_url": "https://s3-west.nrp-nautilus.io/public-wdpa/wdpa/stac-collection.json",
-            "assets": [
-                {
-                    "id": "wdpa-pmtiles",
-                    "display_name": "Protected Areas (WDPA \u2014 IUCN I\u2013IV = production constraint)",
-                    "group": "Constraints",
-                    "visible": false,
-                    "tooltip_fields": [
-                        "NAME_ENG",
-                        "DESIG_ENG",
-                        "IUCN_CAT",
-                        "STATUS",
-                        "ISO3"
-                    ]
-                }
-            ]
-        },
-        {
-            "collection_id": "overture-divisions-countries-2026-02-18",
-            "collection_url": "https://s3-west.nrp-nautilus.io/public-overturemaps/2026-02-18.0/countries/stac-collection.json",
-            "group": {
-                "name": "Administrative Boundaries",
-                "collapsed": true
-            },
-            "assets": [
-                {
-                    "id": "countries-pmtiles",
-                    "display_name": "Countries",
-                    "visible": false
-                }
-            ]
-        },
-        {
-            "collection_id": "overture-divisions-regions-2026-02-18",
-            "collection_url": "https://s3-west.nrp-nautilus.io/public-overturemaps/2026-02-18.0/regions/stac-collection.json",
-            "group": {
-                "name": "Administrative Boundaries",
-                "collapsed": true
-            },
-            "assets": [
-                {
-                    "id": "regions-pmtiles",
-                    "display_name": "Regions / States",
-                    "visible": false
-                }
-            ]
-        }
+    "default_endpoint": "https://openrouter.ai/api/v1",
+    "models": [
+      {
+        "value": "anthropic/claude-sonnet-5",
+        "label": "Claude Sonnet 5"
+      },
+      {
+        "value": "google/gemini-2.5-flash",
+        "label": "Gemini Flash"
+      },
+      {
+        "value": "moonshotai/kimi-k2",
+        "label": "Kimi K2"
+      }
     ]
+  },
+  "welcome": {
+    "message": "Hi! I help you explore the biodiversity · climate · economy trade-offs behind Polasky et al. 2026 (Science). Draw an area or name a country, and I'll show where it sits on its efficiency frontier. Try:",
+    "examples": [
+      "Draw an area, then show its biodiversity, irrecoverable-carbon, and current economic-value scores.",
+      "Plot Brazil's efficiency frontier as a scatter: economic value captured vs biodiversity retained across weightings.",
+      "For the area I drew, how much carbon could be gained with no loss of economic value?",
+      "Find unprotected win-win cells (high biodiversity AND high carbon AND low economic value) in the Amazon.",
+      "Recolor the map by the balanced-weight optimal land use for Brazil.",
+      "Compare the biodiversity-vs-economy trade-off for Gabon versus Indonesia."
+    ]
+  },
+  "links": {
+    "github": "https://github.com/boettiger-lab/landscape-frontiers",
+    "docs": "/docs.html",
+    "carbon": true
+  },
+  "collections": [
+    {
+      "collection_id": "irrecoverable-carbon",
+      "collection_url": "https://s3-west.nrp-nautilus.io/public-carbon/stac-collection.json",
+      "assets": [
+        {
+          "id": "v2-irrecoverable-2024-cog",
+          "display_name": "Irrecoverable Carbon (2024)",
+          "group": "Objectives",
+          "visible": true,
+          "legend_label": "Mg C / ha"
+        }
+      ]
+    },
+    {
+      "collection_id": "iucn-richness-2025",
+      "collection_url": "https://s3-west.nrp-nautilus.io/public-iucn/stac-collection.json",
+      "assets": [
+        {
+          "id": "combined-sr-cog",
+          "display_name": "Species Richness — all vertebrates (IUCN 2025)",
+          "group": "Objectives",
+          "visible": true,
+          "legend_label": "species per cell"
+        },
+        {
+          "id": "combined-rwr-cog",
+          "display_name": "Range-Weighted (endemism) Richness",
+          "group": "Objectives",
+          "visible": false,
+          "legend_label": "rarity-weighted index"
+        },
+        {
+          "id": "combined-thr-sr-cog",
+          "display_name": "Threatened Species Richness (VU/EN/CR)",
+          "group": "Objectives",
+          "visible": false,
+          "legend_label": "threatened species per cell"
+        }
+      ]
+    },
+    {
+      "collection_id": "nci-frontiers",
+      "collection_url": "https://s3-west.nrp-nautilus.io/public-nci-frontiers/stac-collection.json",
+      "assets": [
+        {
+          "id": "crop-current-cog",
+          "display_name": "Crop revenue — current (USD/ha)",
+          "group": "Economic value",
+          "visible": true,
+          "legend_label": "USD/ha"
+        },
+        {
+          "id": "crop-irrigated-cog",
+          "display_name": "Crop revenue — potential irrigated",
+          "group": "Economic value",
+          "visible": false,
+          "legend_label": "USD/ha"
+        },
+        {
+          "id": "crop-rainfed-cog",
+          "display_name": "Crop revenue — potential rainfed",
+          "group": "Economic value",
+          "visible": false,
+          "legend_label": "USD/ha"
+        },
+        {
+          "id": "palm-current-cog",
+          "display_name": "Oil-palm revenue — current",
+          "group": "Economic value",
+          "visible": false,
+          "legend_label": "USD/ha"
+        },
+        {
+          "id": "grazing-return-cog",
+          "display_name": "Grazing revenue (USD/ha)",
+          "group": "Economic value",
+          "visible": false,
+          "legend_label": "USD/ha"
+        },
+        {
+          "id": "forestry-return-cog",
+          "display_name": "Forestry revenue (USD/ha)",
+          "group": "Economic value",
+          "visible": false,
+          "legend_label": "USD/ha"
+        }
+      ]
+    },
+    {
+      "collection_id": "wwf-ecoregions-2017",
+      "collection_url": "https://s3-west.nrp-nautilus.io/public-ecoregion/wwf-ecoregions-2017/stac-collection.json",
+      "assets": [
+        {
+          "id": "ecoregion-pmtiles",
+          "display_name": "Terrestrial Ecoregions (WWF / Dinerstein 2017)",
+          "group": "Biodiversity Context",
+          "visible": false,
+          "tooltip_fields": [
+            "ECO_NAME",
+            "BIOME_NAME",
+            "REALM",
+            "NNH_NAME"
+          ]
+        }
+      ]
+    },
+    {
+      "collection_id": "wdpa",
+      "collection_url": "https://s3-west.nrp-nautilus.io/public-wdpa/wdpa/stac-collection.json",
+      "assets": [
+        {
+          "id": "wdpa-pmtiles",
+          "display_name": "Protected Areas (WDPA — IUCN I–IV = production constraint)",
+          "group": "Constraints",
+          "visible": false,
+          "tooltip_fields": [
+            "NAME_ENG",
+            "DESIG_ENG",
+            "IUCN_CAT",
+            "STATUS",
+            "ISO3"
+          ]
+        }
+      ]
+    },
+    {
+      "collection_id": "overture-divisions-countries-2026-02-18",
+      "collection_url": "https://s3-west.nrp-nautilus.io/public-overturemaps/2026-02-18.0/countries/stac-collection.json",
+      "group": {
+        "name": "Administrative Boundaries",
+        "collapsed": true
+      },
+      "assets": [
+        {
+          "id": "countries-pmtiles",
+          "display_name": "Countries",
+          "visible": false
+        }
+      ]
+    },
+    {
+      "collection_id": "overture-divisions-regions-2026-02-18",
+      "collection_url": "https://s3-west.nrp-nautilus.io/public-overturemaps/2026-02-18.0/regions/stac-collection.json",
+      "group": {
+        "name": "Administrative Boundaries",
+        "collapsed": true
+      },
+      "assets": [
+        {
+          "id": "regions-pmtiles",
+          "display_name": "Regions / States",
+          "visible": false
+        }
+      ]
+    }
+  ],
+  "plugins": [
+    {
+      "url": "https://cdn.jsdelivr.net/gh/SchmidtDSE/glen@v4.0.4/core/plugins/mcp.js",
+      "options": {
+        "url": "https://duckdb-mcp.nrp-nautilus.io/mcp",
+        "prompt": "geospatial-analyst"
+      }
+    },
+    "https://cdn.jsdelivr.net/gh/SchmidtDSE/glen@v4.0.4/core/plugins/hex.js",
+    "https://cdn.jsdelivr.net/gh/SchmidtDSE/glen@v4.0.4/core/plugins/charts.js",
+    "https://cdn.jsdelivr.net/gh/SchmidtDSE/glen@v4.0.4/core/plugins/draw.js"
+  ],
+  "export": true
 }
